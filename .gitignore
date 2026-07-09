@@ -1,5 +1,9 @@
 .venv
 .env
 
-.vscode
+.vscode/
 design.txt
+
+__pycache__/
+
+data/
