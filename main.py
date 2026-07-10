@@ -1,5 +1,6 @@
 import storage
 import models
+import order_service
 
 
 test_data = {
@@ -18,5 +19,9 @@ test_data = {
 
 # models.is_valid_transition("INQUIRY", "CONFIRME")
 
-order = models.new_order(0, "Jane Doe", "0712345678", "a4", "single", framing=True)
-print(order)
+# order = models.new_order(0, "Jane Doe", "0712345678", "a4", "single", framing=True)
+# print(order)
+
+# print(order_service.find_order(test_data, "TOSH-2026-089"))
+data =  storage.load_data()
+print(order_service.create_order(data, client_name="Peter Otieno", contact="0798765432", size="A3", subject_type="single"))
