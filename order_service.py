@@ -80,5 +80,27 @@ def update_status(data: dict, order_id: str, new_status: str) -> bool | None:
     else:
         return None #Order not found
 
-def filter_orders(data, status= None, client_name= None):
-    ...
+def filter_orders(data: dict, status:str =None, client_name:str =None) -> list:
+    """
+        Filter orders based on the criteria given
+
+        Args:
+            data (dict):The full loaded data structure, containing
+                      "orders" (list of order dicts) and "meta".
+            status (str): The status of the order to be found
+            client_name(str): Client name to find order of
+
+        Returns:
+            list : Returns a list of all orders found based on the search criteria
+    """
+
+    matching_orders = []
+
+    for order in data["orders"]:
+        status_matches = (status is None) or (order["status"] == status) 
+        client_matches = (client_name is None) or (order["client_name"] == client_name)   
+
+        if status_matches and client_matches:
+            matching_orders.append(order)
+
+    return matching_orders

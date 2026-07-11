@@ -24,4 +24,13 @@ test_data = {
 
 # print(order_service.find_order(test_data, "TOSH-2026-089"))
 data =  storage.load_data()
-print(order_service.create_order(data, client_name="Peter Otieno", contact="0798765432", size="A3", subject_type="single"))
+# print(order_service.create_order(data, client_name="Peter Otieno", contact="0798765432", size="A3", subject_type="single"))
+
+# matches = order_service.filter_orders(data, status="INQUIRY")                  # only INQUIRY orders
+# print(matches, end= "\n")
+# matches = order_service.filter_orders(data)                                    # no filters — should return everything
+# print(matches, end= "\n")
+# matches = order_service.filter_orders(data, client_name="Jane Wanjiru")         # only Jane's orders
+# print(matches, end= "\n")
+matches = order_service.filter_orders(data, status="INQUIRY", client_name="Jane Wanjiru")  # both — narrower result
+print(matches, end= "\n")
