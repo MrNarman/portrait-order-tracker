@@ -142,3 +142,21 @@ def calculate_price(size, subject_type, framing=False, rush=False, lamination=Fa
         total += DIGITAL_SCAN
 
     return total
+
+def determine_payment_status(total, deposit_paid) -> str:
+    """
+    Determine the payment status based on total price and amount paid.
+
+    Args:
+        total (int): The order's total price.
+        deposit_paid (int): Amount paid so far.
+
+    Returns:
+        str: "UNPAID", "DEPOSIT", or "PAID"
+    """
+    if deposit_paid == 0:
+        return "UNPAID"
+    elif deposit_paid < total:
+        return "DEPOSIT"
+    else:
+        return "PAID"
