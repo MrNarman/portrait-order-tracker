@@ -49,7 +49,7 @@ def main():
             display.print_order_list(data['orders'])
 
         elif choice == "4":
-            order_id = input("Enter order ID: ")
+            order_id = input("Enter order ID: ").upper()
             new_status = input("Enter new status: ").upper()
 
             result = order_service.update_status(data, order_id, new_status)
@@ -62,7 +62,7 @@ def main():
                 print("Order not found.")
 
         elif choice == "5":
-            record_id = input("Enter order ID: ")
+            record_id = input("Enter order ID: ").upper()
             amount_paid = int(input("Enter amount received: "))
 
             result = payments_service.record_payment(data, record_id, amount_paid)
