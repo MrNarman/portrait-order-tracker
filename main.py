@@ -4,19 +4,26 @@ import order_service
 import payments_service
 import display
 
+def print_menu(data):
+    print("\n" + "=" * 40)
+    print("   PORTRAIT ORDER TRACKER")
+    print("=" * 40)
+    print(f"  Total Orders: {len(data['orders'])}")
+    print("-" * 40)
+    print("  1. Create Order")
+    print("  2. View Dashboard")
+    print("  3. List All Orders")
+    print("  4. Update Order Status")
+    print("  5. Record Payment")
+    print("  6. Search Orders")
+    print("  7. Quit")
+    print("=" * 40)
+
 def main():
     data = storage.load_data()
 
     while True:
-        print("\n--- Portrait Order Tracker ---")
-        print("1. Create Order")
-        print("2. View Dashboard")
-        print("3. List All Orders")
-        print("4. Update Order Status")
-        print("5. Record Payment")
-        print("6. Search Orders")
-        print("7. Quit")
-
+        print_menu(data)
         choice = input("Choose an option: ")
 
         if choice == "1":
@@ -50,7 +57,9 @@ def main():
 
         elif choice == "4":
             order_id = input("Enter order ID: ").upper()
-            new_status = input("Enter new status: ").upper()
+            
+            valid_statuses = ", ".join(models.VALID_TRANSITIONS.keys())
+            new_status = input(f"Enter new status ({valid_statuses}): ").upper()
 
             result = order_service.update_status(data, order_id, new_status)
 
@@ -73,7 +82,7 @@ def main():
                 print("Order not found.")
 
         elif choice == "6":
-            status = input("Filter by status (or press Enter to skip): ").upper() or None
+            status = input("Filter by status (or press Enter to skip): ").upper().replace(" ", "_") or None
             client_name = input("Filter by client name (or press Enter to skip): ") or None
 
             matches = order_service.filter_orders(data, status, client_name)
