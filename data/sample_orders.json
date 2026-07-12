@@ -1,0 +1,84 @@
+{
+  "orders": [
+    {
+      "order_id": "TOSH-2026-1",
+      "client_name": "JANE WANJIRU",
+      "contact": "0712345678",
+      "specs": {
+        "size": "A4",
+        "subject_type": "single",
+        "framing": true,
+        "rush": false,
+        "lamination": false,
+        "digital_scan": true
+      },
+      "price": {
+        "total": 2900,
+        "deposit_paid": 1000,
+        "balance": 1900,
+        "payment_status": "DEPOSIT"
+      },
+      "status": "CONFIRMED",
+      "status_history": [
+        {"status": "INQUIRY", "date": "2026-06-01"},
+        {"status": "CONFIRMED", "date": "2026-06-03"}
+      ],
+      "created_date": "2026-06-01"
+    },
+    {
+      "order_id": "TOSH-2026-2",
+      "client_name": "PETER OTIENO",
+      "contact": "0798765432",
+      "specs": {
+        "size": "A3",
+        "subject_type": "single",
+        "framing": false,
+        "rush": false,
+        "lamination": false,
+        "digital_scan": false
+      },
+      "price": {
+        "total": 2500,
+        "deposit_paid": 2500,
+        "balance": 0,
+        "payment_status": "PAID"
+      },
+      "status": "DELIVERED",
+      "status_history": [
+        {"status": "INQUIRY", "date": "2026-05-10"},
+        {"status": "CONFIRMED", "date": "2026-05-11"},
+        {"status": "IN_PROGRESS", "date": "2026-05-13"},
+        {"status": "COMPLETED", "date": "2026-05-20"},
+        {"status": "DELIVERED", "date": "2026-05-22"}
+      ],
+      "created_date": "2026-05-10"
+    },
+    {
+      "order_id": "TOSH-2026-3",
+      "client_name": "WEKESA FAMILY",
+      "contact": "0711223344",
+      "specs": {
+        "size": "A3",
+        "subject_type": "group",
+        "framing": true,
+        "rush": true,
+        "lamination": false,
+        "digital_scan": false
+      },
+      "price": {
+        "total": 6700,
+        "deposit_paid": 0,
+        "balance": 6700,
+        "payment_status": "UNPAID"
+      },
+      "status": "INQUIRY",
+      "status_history": [
+        {"status": "INQUIRY", "date": "2026-07-05"}
+      ],
+      "created_date": "2026-07-05"
+    }
+  ],
+  "meta": {
+    "last_order_number": 3
+  }
+}
