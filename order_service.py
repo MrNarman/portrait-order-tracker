@@ -97,8 +97,8 @@ def filter_orders(data: dict, status:str =None, client_name:str =None) -> list:
     matching_orders = []
 
     for order in data["orders"]:
-        status_matches = (status is None) or (order["status"] == status) 
-        client_matches = (client_name is None) or (order["client_name"] == client_name)   
+        status_matches = (status is None) or (order["status"] == status)
+        client_matches = (client_name is None) or (order["client_name"].upper() == client_name.upper())  
 
         if status_matches and client_matches:
             matching_orders.append(order)

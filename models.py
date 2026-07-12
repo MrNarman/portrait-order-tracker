@@ -85,7 +85,7 @@ def new_order(last_order_number:int, client_name:str, contact:str, size:str, sub
 
     order = {
         'order_id': order_id, 
-        'client_name': client_name,
+        'client_name': client_name.upper(),
         'contact': contact, 
         'specs': {
             'size': size.upper(),
